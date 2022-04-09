@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gitops
+  name: nginx
 spec:
   destination:
     namespace: kuberstar
     server: 'https://kubernetes.default.svc'
   source:
-    path: gitops
+    path: nginx
     repoURL: 'https://github.com/m-minasyan/helm.git'
     targetRevision: main
   project: default
