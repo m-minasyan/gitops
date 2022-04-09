@@ -8,7 +8,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: gitops
-    repoURL: 'https://git.placetime.team/devops/helm-charts.git'
+    repoURL: 'https://github.com/m-minasyan/helm.git'
     targetRevision: main
   project: default
   syncPolicy:
