@@ -4,7 +4,7 @@ metadata:
   name: grafana
 spec:
   destination:
-    namespace: grafana
+    namespace: monitoring
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'https://grafana.github.io/helm-charts'
