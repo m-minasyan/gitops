@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus-node-exporter
+spec:
+  destination:
+    namespace: prometheus
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://prometheus-community.github.io/helm-charts'
+    targetRevision: 3.1.0
+    chart: prometheus-node-exporter
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
