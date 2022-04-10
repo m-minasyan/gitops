@@ -10,14 +10,6 @@ spec:
     repoURL: 'https://prometheus-community.github.io/helm-charts'
     targetRevision: 15.5.4
     chart: prometheus
-    helm:
-      parameters:
-        - name: pushgateway.persistentVolume.size
-          value: 3Gi
-        - name: server.persistentVolume.size
-          value: 3Gi
-        - name: alertmanager.persistentVolume.size
-          value: 3Gi
   project: default
   syncPolicy:
     automated:
