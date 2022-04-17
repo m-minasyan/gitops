@@ -12,10 +12,8 @@ spec:
     chart: jenkins
     helm:
       parameters:
-        - name: agent.runAsUser
-          value: root
-        - name: agent.runAsGroup
-          value: root
+        - name: agent.image
+          value: 'docker:19.03.12'
   project: default
   syncPolicy:
     automated:
