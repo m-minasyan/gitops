@@ -13,7 +13,9 @@ spec:
     helm:
       parameters:
         - name: agent.image
-          value: 'docker:dind'
+          value: 'docker'
+          name: agent.tag
+          value: 'dind'
   project: default
   syncPolicy:
     automated:
