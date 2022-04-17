@@ -14,7 +14,7 @@ spec:
       parameters:
         - name: agent.image
           value: 'docker'
-          name: agent.tag
+        - name: agent.tag
           value: 'dind'
   project: default
   syncPolicy:
