@@ -1,19 +1,19 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: opentelemetry-collector
-spec:
-  destination:
-    namespace: monitoring
-    server: 'https://kubernetes.default.svc'
-  source:
-    repoURL: 'https://open-telemetry.github.io/opentelemetry-helm-charts'
-    targetRevision: 0.13.1
-    chart: opentelemetry-collector
-  project: default
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+#apiVersion: argoproj.io/v1alpha1
+#kind: Application
+#metadata:
+#  name: opentelemetry-collector
+#spec:
+#  destination:
+#    namespace: monitoring
+#    server: 'https://kubernetes.default.svc'
+#  source:
+#    repoURL: 'https://open-telemetry.github.io/opentelemetry-helm-charts'
+#    targetRevision: 0.13.1
+#    chart: opentelemetry-collector
+#  project: default
+#  syncPolicy:
+#    automated:
+#      prune: true
+#      selfHeal: true
+#    syncOptions:
+#      - CreateNamespace=true
