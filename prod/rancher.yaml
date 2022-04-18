@@ -10,7 +10,11 @@ spec:
     repoURL: 'https://releases.rancher.com/server-charts/latest'
     targetRevision: 2.6.5-rc1
     chart: rancher
-  project: default
+      helm:
+        parameters:
+        - name: "ingress.enabled"
+          value: "false"
+      project: default
   syncPolicy:
     automated:
       prune: true
