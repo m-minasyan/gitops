@@ -13,9 +13,9 @@ spec:
     helm:
       parameters:
         - name: image.tag
-          value: '8.0'
+          value: '8.0-oracle'
         - name: image.repository
-          value: djzero81/mysql-arm64
+          value: arm64v8/mysql
   project: default
   syncPolicy:
     automated:
