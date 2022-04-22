@@ -26,8 +26,15 @@ spec:
             type: emptyDir
             mountPath: /shared
           codeserver:
-            enabled: true
-            volumeMounts:
+              enabled: true
+              image:
+                repository: codercom/code-server
+                tag: 3.9.2
+                pullPolicy: IfNotPresent
+              args:
+                - --auth
+                - none
+              volumeMounts:
             - mountPath: /source/duplicati
               name: duplicati-config
             - mountPath: /source/traefik
