@@ -12,39 +12,53 @@ spec:
     chart: duplicati
     helm:
       values: >-
-        persistence:
-          config:
-            enabled: false
-            type: pvc
-            mountPath:  /config
-            readOnly: false
-            accessMode: ReadWriteOnce
-            size: 1Gi
-            retain: false
-          shared:
-            enabled: true
-            type: emptyDir
-            mountPath: /shared
-          codeserver:
-            enabled: true
-            accessMode: ReadWriteOnce
-            size: 1Gi
-            image:
-              repository: codercom/code-server
-              tag: 3.9.2
-              pullPolicy: IfNotPresent
-            args:
-              - --auth
-              - none
-            volumeMounts:
-            - mountPath: /source/duplicati
-              name: duplicati-config
-            - mountPath: /source/traefik
-              name: traefik
-            - mountPath: /source/duplicati
-              name: prometheus-alertmanager
-            - mountPath: /source/traefik
-              name: data-loki-querier-0
+             containers:
+              - name: $SERVICE_NAME
+                env:
+                - { name: PUID, value: "0" }
+                - { name: TZ, value: $TZ }
+                image: $REGISTRY_URI/$SERVICE_NAME:latest
+                ports:
+                - containerPort: 8200
+                resources:
+                  limits:
+                    memory: 2048Mi
+                  requests:
+                    cpu: 200m
+                    memory: 512Mi
+                  volumeMounts:
+                  - mountPath: /config
+                    name: config
+                  - mountPath: /restore
+                    name: restore
+                  - mountPath: /backup/share
+                    name: share
+                  - mountPath: /backup/services
+                    name: backup
+                    readOnly: true
+                  - mountPath: /backup/share/gitlab
+                    name: gitlab
+                    readOnly: true
+                  - mountPath: /backup/home
+                    name: home
+                    readOnly: true
+                 volumes:
+                 - name: config
+                   hostPath: { path: $K8S_VOLUMES_PATH/duplicati/config }
+                 - name: backup
+                   hostPath: { path: $PATH_BKP }
+                 - name: gitlab
+                   hostPath: { path: $K8S_VOLUMES_PATH/gitlab }
+                 - name: home
+                   hostPath: { path: /home }
+       volumeClaimTemplates:
+       - metadata:
+           name: restore
+         spec:
+           accessModes: [ ReadWriteOnce ]
+           resources:
+             requests:
+               storage: 8Gi
   project: default
   syncPolicy:
     automated:
