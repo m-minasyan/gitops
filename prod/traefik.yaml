@@ -6,46 +6,11 @@ spec:
   destination:
     namespace: traefik
     server: 'https://kubernetes.default.svc'
-  project: default
   source:
-    repoURL: 'https://helm.traefik.io/traefik'
-    targetRevision: 10.15.0
-    chart: traefik
-    helm:
-      values: >-
-        globalArguments:
-          - "--global.checknewversion"
-        additionalArguments:
-          - "--entrypoints.websecure.http.tls.certresolver=cloudflare"
-          - "--entrypoints.websecure.http.tls.domains[0].main=kuberstar.com"
-          - "--entrypoints.websecure.http.tls.domains[0].sans=*.kuberstar.com"
-          - "--certificatesresolvers.myresolver.acme.storage=/certs/acme.json"
-          - "--certificatesresolvers.myresolver.acme.email=minasyan.business@gmail.com"
-          - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=websecure"
-        ports:
-          web:
-            redirectTo: websecure
-        ingressRoute:
-          dashboard:
-            enabled: false
-        env:
-         - name: CF_API_EMAIL
-           value: minasyan.business@gmail.com
-         - name: CF_API_KEY
-           valueFrom:
-             secretKeyRef:
-               name: traefik-cloudflare-secret
-               key: CF_API_KEY
-        initContainers:
-             - name: volume-permissions
-               image: busybox:1.31.1
-               command: ["sh", "-c", "chmod -Rv 600 /certs/*"]
-               volumeMounts:
-                 - name: certs
-                   mountPath: /certs
-        persistence:
-          enabled: true
-          path: /certs
+    path: traefik
+    repoURL: 'https://github.com/m-minasyan/helm.git'
+    targetRevision: main
+  project: default
   syncPolicy:
     automated:
       prune: true
