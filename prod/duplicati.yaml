@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: duplicati
+spec:
+  destination:
+    namespace: duplicati
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://k8s-at-home.com/charts/'
+    targetRevision: 5.2.0
+    chart: duplicati
+    helm:
+      values: >-
+        persistence:
+          config:
+            enabled: true
+          shared:
+            enabled: true
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
