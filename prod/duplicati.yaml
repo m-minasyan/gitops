@@ -15,6 +15,7 @@ spec:
         persistence:
           config:
             enabled: true
+            accessMode: ReadWriteOnce
           codeserver:
             enabled: true
             volumeMounts:
