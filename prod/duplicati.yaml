@@ -18,7 +18,7 @@ spec:
             type: pvc
             mountPath:  /config
             readOnly: false
-            accessMode: ReadWriteOnce
+            accessMode: ReadWrite
             size: 1Gi
             retain: false
           shared:
