@@ -12,11 +12,11 @@ spec:
     chart: duplicati
     helm:
       values: >-
-        volumeMounts:
-        - mountPath: /config
-          name: duplicati-config
-        - mountPath: /
-          name: traefik
+            volumeMounts:
+            - mountPath: /config
+              name: duplicati-config
+            - mountPath: /
+              name: traefik
   project: default
   syncPolicy:
     automated:
