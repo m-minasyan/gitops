@@ -16,7 +16,9 @@ spec:
         globalArguments:
           - "--global.checknewversion"
         additionalArguments:
-          - "--certificatesresolvers.le.acme.storage=/data/acme.json"
+          - --entrypoints.websecure.http.tls.domains[0].main=kuberstar.com
+          - --entrypoints.websecure.http.tls.domains[0].sans=*.kuberstar.com
+          - "--certificatesresolvers.le.acme.storage=/certs/acme.json"
           - "--certificatesresolvers.myresolver.acme.email=minasyan.business@gmail.com"
           - "--entrypoints.web.address=:80"
           - "--entrypoints.websecure.address=:443"
@@ -31,6 +33,7 @@ spec:
                key: CF_API_KEY
         persistence:
           enabled: true
+          path: /certs
   syncPolicy:
     automated:
       prune: true
