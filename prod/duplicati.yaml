@@ -15,9 +15,9 @@ spec:
           codeserver:
             enabled: true
             volumeMounts:
-            - mountPath: /config
+            - mountPath: /source/duplicati
               name: duplicati-config
-            - mountPath: /
+            - mountPath: /source/traefik
               name: traefik
   project: default
   syncPolicy:
