@@ -13,7 +13,7 @@ spec:
     chart: traefik
     helm:
       valueFiles:
-        - prod/traefik.values.yaml
+        - https://raw.githubusercontent.com/m-minasyan/gitops-example/main/prod/traefik.values.yaml
   syncPolicy:
     automated:
       prune: true
