@@ -19,6 +19,10 @@ spec:
               name: duplicati-config
             - mountPath: /source/traefik
               name: traefik
+            - mountPath: /source/duplicati
+              name: prometheus-alertmanager
+            - mountPath: /source/traefik
+              name: data-loki-querier-0
   project: default
   syncPolicy:
     automated:
