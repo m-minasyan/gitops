@@ -7,58 +7,9 @@ spec:
     namespace: duplicati
     server: 'https://kubernetes.default.svc'
   source:
-    repoURL: 'https://k8s-at-home.com/charts/'
-    targetRevision: 5.2.0
-    chart: duplicati
-    helm:
-      values: >-
-             containers:
-              - name: $SERVICE_NAME
-                env:
-                - { name: PUID, value: "0" }
-                - { name: TZ, value: $TZ }
-                image: $REGISTRY_URI/$SERVICE_NAME:latest
-                ports:
-                - containerPort: 8200
-                resources:
-                  limits:
-                    memory: 2048Mi
-                  requests:
-                    cpu: 200m
-                    memory: 512Mi
-                  volumeMounts:
-                  - mountPath: /config
-                    name: config
-                  - mountPath: /restore
-                    name: restore
-                  - mountPath: /backup/share
-                    name: share
-                  - mountPath: /backup/services
-                    name: backup
-                    readOnly: true
-                  - mountPath: /backup/share/gitlab
-                    name: gitlab
-                    readOnly: true
-                  - mountPath: /backup/home
-                    name: home
-                    readOnly: true
-                 volumes:
-                 - name: config
-                   hostPath: { path: $K8S_VOLUMES_PATH/duplicati/config }
-                 - name: backup
-                   hostPath: { path: $PATH_BKP }
-                 - name: gitlab
-                   hostPath: { path: $K8S_VOLUMES_PATH/gitlab }
-                 - name: home
-                   hostPath: { path: /home }
-       volumeClaimTemplates:
-       - metadata:
-           name: restore
-         spec:
-           accessModes: [ ReadWriteOnce ]
-           resources:
-             requests:
-               storage: 8Gi
+    path: duplicati
+    repoURL: 'https://github.com/m-minasyan/helm.git'
+    targetRevision: main
   project: default
   syncPolicy:
     automated:
