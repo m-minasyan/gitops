@@ -18,7 +18,7 @@ spec:
         additionalArguments:
           - "--entrypoints.websecure.http.tls.domains[0].main=kuberstar.com"
           - "--entrypoints.websecure.http.tls.domains[0].sans=*.kuberstar.com"
-          - "--certificatesresolvers.le.acme.storage=/certs/acme.json"
+          - "--certificatesresolvers.myresolver.acme.storage=/certs/acme.json"
           - "--certificatesresolvers.myresolver.acme.email=minasyan.business@gmail.com"
           - "--entrypoints.web.address=:80"
           - "--entrypoints.websecure.address=:443"
