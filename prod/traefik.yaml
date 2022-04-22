@@ -40,15 +40,11 @@ spec:
                image: busybox:1.31.1
                command: ["sh", "-c", "chmod -Rv 600 /certs/*"]
                volumeMounts:
-                 - name: public-cert
+                 - name: certs
                    mountPath: /certs
-        volumes:
-          - name: public-cert
-            mountPath: "/certs"
-            type: secret
-          - name: '{{ printf "%s-configs" .Release.Name }}'
-            mountPath: "/config"
-            type: configMap
+        persistence:
+          enabled: true
+          path: /certs
   project: default
   syncPolicy:
     automated:
