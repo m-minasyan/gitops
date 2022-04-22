@@ -14,8 +14,17 @@ spec:
       values: >-
         persistence:
           config:
-            enabled: true
+            enabled: false
+            type: pvc
+            mountPath:  /config
+            readOnly: false
             accessMode: ReadWriteOnce
+            size: 1Gi
+            retain: false
+          shared:
+            enabled: true
+            type: emptyDir
+            mountPath: /shared
           codeserver:
             enabled: true
             volumeMounts:
