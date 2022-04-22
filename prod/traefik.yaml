@@ -23,6 +23,12 @@ spec:
           - "--entrypoints.web.address=:80"
           - "--entrypoints.websecure.address=:443"
           - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=websecure"
+        ports:
+          web:
+            redirectTo: websecure
+        ingressRoute:
+          dashboard:
+            enabled: false
         env:
          - name: CF_API_EMAIL
            value: minasyan.business@gmail.com
@@ -31,6 +37,13 @@ spec:
              secretKeyRef:
                name: traefik-cloudflare-secret
                key: CF_API_KEY
+        initContainers:
+             - name: volume-permissions
+               image: busybox:1.31.1
+               command: ["sh", "-c", "chmod -Rv 600 /certs/*"]
+               volumeMounts:
+                 - name: certs
+                   mountPath: /certs
         persistence:
           enabled: true
           path: /certs
