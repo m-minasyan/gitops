@@ -13,7 +13,7 @@ spec:
     chart: traefik
     helm:
       valueFiles:
-        - traefik.values.yaml
+        - prod/traefik.values.yaml
   syncPolicy:
     automated:
       prune: true
