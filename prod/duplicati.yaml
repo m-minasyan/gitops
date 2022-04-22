@@ -12,6 +12,9 @@ spec:
     chart: duplicati
     helm:
       values: >-
+        persistence:
+          config:
+            enabled: true
           codeserver:
             enabled: true
             volumeMounts:
