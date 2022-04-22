@@ -20,8 +20,6 @@ spec:
           - "--entrypoints.websecure.http.tls.domains[0].sans=*.kuberstar.com"
           - "--certificatesresolvers.myresolver.acme.storage=/certs/acme.json"
           - "--certificatesresolvers.myresolver.acme.email=minasyan.business@gmail.com"
-          - "--entrypoints.web.address=:80"
-          - "--entrypoints.websecure.address=:443"
           - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=websecure"
         ports:
           web:
