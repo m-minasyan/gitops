@@ -12,8 +12,8 @@ spec:
     chart: duplicati
     helm:
       values: >-
-        codeserver:
-          enabled: true
+          codeserver:
+            enabled: true
             volumeMounts:
             - mountPath: /config
               name: duplicati-config
