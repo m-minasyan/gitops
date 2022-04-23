@@ -27,19 +27,12 @@ spec:
           value: 'true'
       values: |-
         codeserver:
-            enabled: true
-            image:
-              repository: codercom/code-server
-              tag: 3.9.2
-              pullPolicy: IfNotPresent
+          enabled: true
             env:
-              TZ: Asia/Yerevan
-            args:
-              - --auth
-              - none
-            volumeMounts: []
-              - name: config
-              mountPath: /data/config
+            TZ: Asia/Yerevan
+          volumeMounts:
+            - name: config
+            mountPath: /data/config
   project: default
   syncPolicy:
     automated:
