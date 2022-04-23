@@ -27,12 +27,12 @@ spec:
           value: 'true'
       values: |-
         codeserver:
-          enabled: true
-            env:
-            TZ: Asia/Yerevan
-          volumeMounts:
-            - name: config
-            mountPath: /data/config
+            enabled: true
+              env:
+              TZ: Asia/Yerevan
+            volumeMounts:
+              - name: config
+              mountPath: /data/config
   project: default
   syncPolicy:
     automated:
