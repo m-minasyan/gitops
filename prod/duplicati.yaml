@@ -30,9 +30,9 @@ spec:
             enabled: true
               env:
                 TZ: Asia/Yerevan
-            volumeMounts:
-              - name: config
-              mountPath: /data/config
+              volumeMounts:
+                - name: config
+                  mountPath: /data/config
   project: default
   syncPolicy:
     automated:
