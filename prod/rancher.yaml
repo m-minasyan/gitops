@@ -27,9 +27,9 @@ spec:
     namespace: cattle-system
     server: 'https://kubernetes.default.svc'
   source:
-    repoURL: 'https://charts.jetstack.io'
-    targetRevision: v1.8.0
-    chart: cert-manager
+    path: cert-manager
+    repoURL: 'https://github.com/m-minasyan/helm.git'
+    targetRevision: main
     helm:
       parameters:
         - name: hostname
@@ -40,9 +40,6 @@ spec:
           value: letsEncrypt
         - name: letsEncrypt.email
           value: djzero81@gmail.com
-    path: cert-manager
-    repoURL: 'https://github.com/m-minasyan/helm.git'
-    targetRevision: main
   project: default
   syncPolicy:
     automated:
