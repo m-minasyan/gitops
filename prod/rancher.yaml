@@ -13,7 +13,7 @@ spec:
     helm:
       parameters:
         - name: hostname
-          value: rancher.172.16.0.153.nip.io
+          value: rancher-cluster.kuberstar.com
         - name: bootstrapPassword
           value: admin
         - name: ingress.tls.source
