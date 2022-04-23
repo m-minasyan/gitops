@@ -29,7 +29,7 @@ spec:
         codeserver:
             enabled: true
               env:
-              TZ: Asia/Yerevan
+                TZ: Asia/Yerevan
             volumeMounts:
               - name: config
               mountPath: /data/config
