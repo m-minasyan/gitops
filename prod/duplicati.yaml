@@ -20,6 +20,11 @@ spec:
         - name: env.TZ
           value: Asia/Yerevan
       values: |-
+        volumeClaimTemplates:
+          - name: backup
+            mouthPath: /backup
+            accessMode: "ReadWriteOnce"
+            size: 10Gi
           volumeMounts:
             - name: config
               mountPath: /data/config
@@ -29,14 +34,6 @@ spec:
           volumes:
             - name: home
               hostPath: { path: /home/ }
-        volumeClaimTemplates:
-        - metadata:
-            name: backup
-          spec:
-            accessModes: [ ReadWriteOnce ]
-            resources:
-              requests:
-                storage: 8Gi
   project: default
   syncPolicy:
     automated:
