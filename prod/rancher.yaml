@@ -50,6 +50,12 @@ spec:
     repoURL: 'https://charts.jetstack.io'
     targetRevision: v1.8.0
     chart: cert-manager
+    helm:
+      values: |-
+        hostname=rancher-cluster.kuberstar.com \
+        bootstrapPassword=admin \
+        ingress.tls.source=letsEncrypt \
+        letsEncrypt.email=djzero81@gmail.com \
   project: default
   syncPolicy:
     automated:
