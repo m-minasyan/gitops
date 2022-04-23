@@ -7,30 +7,9 @@ spec:
     namespace: duplicati
     server: 'https://kubernetes.default.svc'
   source:
-    path: ''
-    repoURL: 'https://k8s-at-home.com/charts/'
-    targetRevision: 5.2.0
-    chart: duplicati
-    helm:
-      parameters:
-        - name: env.PGID
-          value: '0'
-        - name: env.PUID
-          value: '0'
-        - name: env.TZ
-          value: Asia/Yerevan
-      values: >-
-        volumeMounts:
-          - name: config
-            mountPath: /data/config
-          - name: home
-            mountPath: /backup/home
-            readOnly: true
-            persistentVolumeClaim:
-              claimName: home
-        volumes:
-          - name: home
-            hostPath: { path: /home/ }
+    path: duplicati
+    repoURL: 'https://github.com/m-minasyan/helm.git'
+    targetRevision: main
   project: default
   syncPolicy:
     automated:
