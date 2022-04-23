@@ -7,10 +7,9 @@ spec:
     namespace: rancher
     server: 'https://kubernetes.default.svc'
   source:
-    path: ''
-    repoURL: 'https://releases.rancher.com/server-charts/latest'
-    targetRevision: 2.6.5-rc2
-    chart: rancher
+    path: rancher
+    repoURL: 'https://github.com/m-minasyan/helm.git'
+    targetRevision: main
   project: default
   syncPolicy:
     automated:
