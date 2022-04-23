@@ -26,6 +26,8 @@ spec:
           - name: home
             mountPath: /backup/home
             readOnly: true
+            persistentVolumeClaim:
+              claimName: home
         volumes:
           - name: home
             hostPath: { path: /home/ }
