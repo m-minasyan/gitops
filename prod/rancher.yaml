@@ -40,23 +40,6 @@ spec:
           value: letsEncrypt
         - name: letsEncrypt.email
           value: djzero81@gmail.com
-  project: default
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: cert-manager
-spec:
-  destination:
-    namespace: cattle-system
-    server: 'https://kubernetes.default.svc'
-  source:
     path: cert-manager
     repoURL: 'https://github.com/m-minasyan/helm.git'
     targetRevision: main
@@ -67,3 +50,23 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+---
+#apiVersion: argoproj.io/v1alpha1
+#kind: Application
+#metadata:
+#  name: cert-manager
+#spec:
+#  destination:
+#    namespace: cattle-system
+#    server: 'https://kubernetes.default.svc'
+#  source:
+#    path: cert-manager
+#    repoURL: 'https://github.com/m-minasyan/helm.git'
+#    targetRevision: main
+#  project: default
+#  syncPolicy:
+#    automated:
+#      prune: true
+#      selfHeal: true
+#    syncOptions:
+#      - CreateNamespace=true
