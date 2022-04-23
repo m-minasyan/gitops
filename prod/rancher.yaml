@@ -4,7 +4,7 @@ metadata:
   name: rancher
 spec:
   destination:
-    namespace: rancher
+    namespace: cattle-system
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'https://releases.rancher.com/server-charts/stable'
@@ -24,7 +24,7 @@ metadata:
   name: cert-manager
 spec:
   destination:
-    namespace: rancher
+    namespace: cert-manager
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'https://charts.jetstack.io'
