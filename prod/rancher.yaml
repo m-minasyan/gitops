@@ -7,9 +7,9 @@ spec:
     namespace: cattle-system
     server: 'https://kubernetes.default.svc'
   source:
-    repoURL: 'https://releases.rancher.com/server-charts/stable'
-    targetRevision: 2.6.4
-    chart: rancher
+    path: rancher
+    repoURL: 'https://github.com/m-minasyan/helm.git'
+    targetRevision: main
     helm:
       parameters:
         - name: hostname
