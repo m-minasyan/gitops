@@ -51,7 +51,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager-crd
+  name: cert-manager
 spec:
   destination:
     namespace: cattle-system
