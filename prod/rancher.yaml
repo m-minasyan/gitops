@@ -7,9 +7,49 @@ spec:
     namespace: rancher
     server: 'https://kubernetes.default.svc'
   source:
-    path: rancher
-    repoURL: 'https://github.com/m-minasyan/helm.git'
+    repoURL: 'https://releases.rancher.com/server-charts/stable'
+    targetRevision: 2.6.4
+    chart: rancher
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager-crd
+spec:
+  destination:
+    namespace: rancher
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ''
+    repoURL: 'https://github.com/jetstack/cert-manager/releases/download/v1.5.1/cert-manager.crds.yaml'
     targetRevision: main
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+spec:
+  destination:
+    namespace: rancher
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://charts.jetstack.io'
+    targetRevision: v1.8.0
+    chart: cert-manager
   project: default
   syncPolicy:
     automated:
