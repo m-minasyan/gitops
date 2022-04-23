@@ -26,13 +26,13 @@ spec:
         - name: persistence.source.enabled
           value: 'true'
       values: |-
-        codeserver:
+          codeserver:
             enabled: true
-              env:
-                TZ: Asia/Yerevan
-              volumeMounts:
-                - name: config
-                  mountPath: /data/config
+            env:
+              TZ: Asia/Yerevan
+            volumeMounts:
+              - name: config
+                mountPath: /data/config
   project: default
   syncPolicy:
     automated:
