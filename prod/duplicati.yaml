@@ -29,6 +29,14 @@ spec:
           volumes:
             - name: home
               hostPath: { path: /home/ }
+        volumeClaimTemplates:
+        - metadata:
+            name: backup
+          spec:
+            accessModes: [ ReadWriteOnce ]
+            resources:
+              requests:
+                storage: 8Gi
   project: default
   syncPolicy:
     automated:
