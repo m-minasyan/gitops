@@ -19,12 +19,6 @@ spec:
           value: '0'
         - name: env.TZ
           value: Asia/Yerevan
-        - name: persistence.backups.enabled
-          value: 'true'
-        - name: persistence.config.enabled
-          value: 'true'
-        - name: persistence.source.enabled
-          value: 'true'
       values: |-
           codeserver:
             enabled: true
