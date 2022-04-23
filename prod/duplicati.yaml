@@ -19,7 +19,7 @@ spec:
           value: '0'
         - name: env.TZ
           value: Asia/Yerevan
-      values: |-
+      values: >-
         volumeClaimTemplates:
           - name: backup
             mouthPath: /backup
