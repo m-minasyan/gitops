@@ -24,7 +24,7 @@ metadata:
   name: cert-manager
 spec:
   destination:
-    namespace: cert-manager
+    namespace: cattle-system
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'https://charts.jetstack.io'
