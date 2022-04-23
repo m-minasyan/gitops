@@ -10,6 +10,16 @@ spec:
     repoURL: 'https://releases.rancher.com/server-charts/stable'
     targetRevision: 2.6.4
     chart: rancher
+    helm:
+      parameters:
+        - name: hostname
+          value: rancher.172.16.0.153.nip.io
+        - name: bootstrapPassword
+          value: admin
+        - name: ingress.tls.source
+          value: letsEncrypt
+        - name: letsEncrypt.email
+          value: djzero81@gmail.com
   project: default
   syncPolicy:
     automated:
@@ -30,16 +40,6 @@ spec:
     path: cert-manager
     repoURL: 'https://github.com/m-minasyan/helm.git'
     targetRevision: main
-    helm:
-      parameters:
-        - name: hostname
-          value: rancher.172.16.0.153.nip.io
-        - name: bootstrapPassword
-          value: admin
-        - name: ingress.tls.source
-          value: letsEncrypt
-        - name: letsEncrypt.email
-          value: djzero81@gmail.com
   project: default
   syncPolicy:
     automated:
