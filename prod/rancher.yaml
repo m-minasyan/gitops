@@ -51,11 +51,15 @@ spec:
     targetRevision: v1.8.0
     chart: cert-manager
     helm:
-      values: |-
-        hostname=rancher-cluster.kuberstar.com \
-        bootstrapPassword=admin \
-        ingress.tls.source=letsEncrypt \
-        letsEncrypt.email=djzero81@gmail.com \
+      parameters:
+        - name: hostname
+          value: rancher-cluster.kuberstar.com
+        - name: bootstrapPassword
+          value: admin
+        - name: ingress.tls.source
+          value: letsEncrypt
+        - name: letsEncrypt.email
+          value: djzero81@gmail.com
   project: default
   syncPolicy:
     automated:
