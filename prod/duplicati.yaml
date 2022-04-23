@@ -7,6 +7,7 @@ spec:
     namespace: duplicati
     server: 'https://kubernetes.default.svc'
   source:
+    path: ''
     repoURL: 'https://k8s-at-home.com/charts/'
     targetRevision: 5.2.0
     chart: duplicati
@@ -27,8 +28,15 @@ spec:
       values: |-
         codeserver:
             enabled: true
+            image:
+              repository: codercom/code-server
+              tag: 3.9.2
+              pullPolicy: IfNotPresent
             env:
               TZ: Asia/Yerevan
+            args:
+              - --auth
+              - none
             volumeMounts: []
               - name: config
               mountPath: /data/config
