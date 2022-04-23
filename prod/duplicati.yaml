@@ -30,6 +30,9 @@ spec:
               - name: mysql
                 mountPath: /source/mysql
                 readOnly: true
+          volumes:
+              - name: mysql
+                hostPath: { path: /home/ubuntu/mysql_home }
   project: default
   syncPolicy:
     automated:
