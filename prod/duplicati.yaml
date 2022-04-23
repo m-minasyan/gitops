@@ -27,6 +27,9 @@ spec:
             volumeMounts:
               - name: config
                 mountPath: /data/config
+              - name: mysql
+                mountPath: /source/mysql
+                readOnly: true
   project: default
   syncPolicy:
     automated:
