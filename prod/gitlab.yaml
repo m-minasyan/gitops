@@ -18,6 +18,8 @@ spec:
           value: 'false'
         - name: certmanager.rbac.create
           value: 'false'
+        - name: appConfig.incomingEmail.address
+          value: 'next@gmail.com'
   project: default
   syncPolicy:
     automated:
