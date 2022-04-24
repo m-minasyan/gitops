@@ -10,6 +10,14 @@ spec:
     repoURL: 'https://charts.gitlab.io/'
     targetRevision: 5.10.0
     chart: gitlab
+    helm:
+      parameters:
+        - name: certmanager.install
+          value: 'false'
+        - name: certmanager.installCRDs
+          value: 'false'
+        - name: certmanager.rbac.create
+          value: 'false'
   project: default
   syncPolicy:
     automated:
