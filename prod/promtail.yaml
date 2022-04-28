@@ -14,7 +14,7 @@ spec:
     helm:
       values: |
         config:
-          lokiAddress: http://loki-gateway.monitoring/loki/api/v1/push   # FQDN of loki-gateway's push endpoint
+          lokiAddress: http://loki-gateway/loki/api/v1/push
   syncPolicy:
     automated:
       prune: true
